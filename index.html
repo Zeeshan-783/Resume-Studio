@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Resume Builder - Pro</title>
+    <title>AI Resume Studio - Pro</title>
+    <!-- Tailwind Play CDN (Warning is normal for runtime processing) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <!-- PDF.js for text extraction -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         @media print {
             .no-print { display: none !important; }
@@ -28,13 +29,17 @@
             -webkit-print-color-adjust: exact;
         }
         h1, h2, h3 {
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.05em;
+        }
+        .font-serif {
             font-family: 'Lora', serif;
         }
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+            background: transparent;
         }
         ::-webkit-scrollbar-thumb {
             background: #888;
@@ -57,7 +62,7 @@
 }
 </script>
 </head>
-<body class="bg-gray-100 min-h-screen py-10 px-4">
+<body class="bg-gray-100 min-h-screen">
     <div id="root"></div>
     <script>
       // Configure PDF.js worker

@@ -245,7 +245,7 @@ const App: React.FC = () => {
   // Logo Component
   const StudioLogo = () => (
     <div className="relative w-20 h-20 mb-6 group cursor-default">
-      <div className={`absolute inset-0 rotate-45 group-hover:rotate-90 transition-transform duration-500 ${isDarkMode ? 'bg-white' : 'bg-black'}`}></div>
+      <div className={`absolute inset-0 rotate-45 group-hover:rotate-90 transition-transform duration-500 ${isDarkMode ? 'bg-white shadow-[0_0_15px_rgba(255,255,255,0.3)]' : 'bg-black'}`}></div>
       <div className="absolute inset-0 flex items-center justify-center">
         <div className={`w-14 h-14 flex items-center justify-center -rotate-45 group-hover:rotate-0 transition-transform duration-500 ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
            <span className={`font-black text-2xl tracking-tighter ${isDarkMode ? 'text-white' : 'text-black'}`}>RS</span>
@@ -254,7 +254,7 @@ const App: React.FC = () => {
     </div>
   );
 
-  // Layouts 
+  // Layout Templates (Inside preview paper)
   const ClassicLayout = () => (
     <div className="flex flex-col gap-5 font-serif text-black">
       <header className="text-center border-b-[3px] border-black pb-4">
@@ -414,12 +414,10 @@ const App: React.FC = () => {
     </div>
   );
 
-  // Dynamic Theme Classes
+  // Theme Constants
   const themeContainer = isDarkMode ? 'bg-[#0A0A0A] text-white' : 'bg-[#FDFDFD] text-black';
-  const themeBox = isDarkMode ? 'bg-black border-white shadow-[10px_10px_0px_0px_rgba(255,255,255,0.2)]' : 'bg-white border-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]';
-  const themeInput = isDarkMode ? 'bg-[#1A1A1A] text-white placeholder-gray-600' : 'bg-gray-50 text-black placeholder-gray-400';
-  const themePrimaryButton = isDarkMode ? 'bg-white text-black border-white hover:bg-black hover:text-white' : 'bg-black text-white border-black hover:bg-white hover:text-black';
-  const themeSecondaryButton = isDarkMode ? 'bg-[#1A1A1A] text-white border-white hover:bg-white hover:text-black' : 'bg-gray-100 text-black border-black hover:bg-black hover:text-white';
+  const themeBox = isDarkMode ? 'bg-black border-white shadow-[10px_10px_0px_0px_rgba(255,255,255,0.1)]' : 'bg-white border-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]';
+  const themeInput = isDarkMode ? 'bg-[#151515] text-white placeholder-gray-600' : 'bg-gray-50 text-black placeholder-gray-400';
 
   return (
     <div className={`flex flex-col items-center min-h-screen selection:bg-gray-500 selection:text-white pb-20 transition-colors duration-500 ${themeContainer}`}>
@@ -433,10 +431,10 @@ const App: React.FC = () => {
 
       {view === 'input' ? (
         <div className="w-full max-w-6xl p-6 md:p-12 mt-4 space-y-16">
-          {/* Custom Studio Header */}
+          {/* Header */}
           <div className="flex flex-col items-center text-center">
             <StudioLogo />
-            <h1 className="text-7xl font-black mb-6 tracking-tighter uppercase leading-none">
+            <h1 className="text-7xl font-black mb-4 tracking-tighter uppercase leading-none">
               Resume <span className="italic font-serif">Studio</span>
             </h1>
             <p className={`text-lg font-medium max-w-2xl mx-auto uppercase tracking-[0.5em] ${isDarkMode ? 'text-gray-500' : 'text-gray-400'}`}>
@@ -444,7 +442,7 @@ const App: React.FC = () => {
             </p>
           </div>
 
-          {/* 1. Template Choice */}
+          {/* Template Selection */}
           <div className="space-y-8">
             <h2 className={`text-center text-[10px] font-black uppercase tracking-[0.6em] ${isDarkMode ? 'text-gray-700' : 'text-gray-300'}`}>Step 01 / Select Template</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -465,10 +463,10 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          {/* Main Layout Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            {/* Left Column (Source & Import) */}
-            <div className="lg:col-span-8 space-y-12">
+          {/* Master Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 relative">
+            {/* LEFT COLUMN: SOURCE & IMPORT (Determines height) */}
+            <div className="lg:col-span-8 flex flex-col gap-12">
               <div className="space-y-6">
                 <h2 className={`text-[10px] font-black uppercase tracking-[0.6em] ${isDarkMode ? 'text-gray-700' : 'text-gray-300'}`}>Step 02 / Resume Source</h2>
                 <div className={`p-6 rounded-none border-[3px] shadow-[15px_15px_0px_0px] transition-all ${isDarkMode ? 'bg-black border-white shadow-white/10' : 'bg-white border-black shadow-black'}`}>
@@ -498,8 +496,8 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column (AI Engine) */}
-            <div className="lg:col-span-4 flex flex-col justify-center">
+            {/* RIGHT COLUMN: AI ENGINE (Vertically centered relative to the left column) */}
+            <div className="lg:col-span-4 flex flex-col justify-center sticky top-12 self-center">
               <div className={`p-8 border-[4px] flex flex-col gap-10 transition-all ${isDarkMode ? 'bg-white text-black border-white shadow-[12px_12px_0px_0px_rgba(255,255,255,0.1)]' : 'bg-black text-white border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]'}`}>
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
