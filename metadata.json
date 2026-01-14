@@ -1,0 +1,5 @@
+{
+  "name": "Resume Studio",
+  "description": "Dynamic AI-powered resume builder that transforms raw text or JSON into professional, print-ready PDF resumes using Google Gemini API.",
+  "requestFramePermissions": []
+}
